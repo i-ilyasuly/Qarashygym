@@ -4,18 +4,23 @@ export type ThemeType = 'light' | 'dark';
 
 export const COLORS = {
   light: {
-    background: '#F8FAFC', // slate-50
+    // New palette based on UI/UX specification
+    background: '#F9FAFB', // Very light grey/clean white
     card: '#FFFFFF',
-    border: '#E2E8F0', // slate-200
-    textPrimary: '#0F172A', // slate-900
-    textSecondary: '#475569', // slate-600
-    textTertiary: '#94A3B8', // slate-400
-    success: '#10B981', // Green
-    danger: '#EF4444',  // Red
-    warning: '#F59E0B', // Yellow
+    border: '#E5E7EB', // Light grey
+    textPrimary: '#2B2D42', // Dark blue-grey
+    textSecondary: '#4B5563', // Medium grey
+    textTertiary: '#9CA3AF', // Light grey
+    // Primary accent colors
+    primary: '#FF9F1C', // Warm yellow-orange (warmth, sunshine)
+    primaryAlt: '#F4A261', // Alternative warm color
+    // Status colors
+    success: '#2A9D8F', // Teal green (everything is good)
+    danger: '#E76F51', // Warm red-orange
+    warning: '#F4A261', // Warm orange
     accent: '#3B82F6',  // Blue
     purple: '#8B5CF6',
-    surface: '#F1F5F9', // slate-100
+    surface: '#F3F4F6', // Light surface
   },
   dark: {
     background: '#1C1C1E', 
@@ -24,9 +29,11 @@ export const COLORS = {
     textPrimary: '#FFFFFF',
     textSecondary: '#8E8E93',
     textTertiary: '#71717A',
-    success: '#10B981',
-    danger: '#EF4444',
-    warning: '#F59E0B',
+    primary: '#FF9F1C',
+    primaryAlt: '#F4A261',
+    success: '#2A9D8F',
+    danger: '#E76F51',
+    warning: '#F4A261',
     accent: '#3B82F6',
     purple: '#A78BFA',
     surface: '#3A3A3C',

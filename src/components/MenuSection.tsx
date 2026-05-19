@@ -100,7 +100,7 @@ export default function MenuSection() {
                 style={[
                   styles.dayPill, 
                   { 
-                    backgroundColor: isSelected ? '#10B981' : colors.card,
+                    backgroundColor: isSelected ? colors.success : colors.card,
                     borderColor: isSelected ? 'transparent' : colors.border
                   }
                 ]}
@@ -137,12 +137,12 @@ export default function MenuSection() {
           
           if (meal.statusType === 'success_pill') {
             statusElement = (
-              <View style={[styles.statusPill, { backgroundColor: isDark ? '#FFFFFF15' : '#05966915' }]}>
-                <Text style={{ color: isDark ? '#10B981' : '#059669', fontWeight: '700', fontSize: 13, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>
+              <View style={[styles.statusPill, { backgroundColor: colors.success + '15' }]}>
+                <Text style={{ color: colors.success, fontWeight: '700', fontSize: 13, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>
               </View>
             );
           } else if (meal.statusType === 'success_text') {
-            statusElement = <Text style={{ color: isDark ? '#10B981' : '#059669', fontWeight: '600', fontSize: 14, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>;
+            statusElement = <Text style={{ color: colors.success, fontWeight: '600', fontSize: 14, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>;
           } else if (meal.statusType === 'warning_text') {
             statusElement = <Text style={{ color: '#D97706', fontWeight: '600', fontSize: 14, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>;
           } else {

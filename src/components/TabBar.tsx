@@ -25,7 +25,7 @@ export default function TabBar({ activeTab, onTabSelect }: TabBarProps) {
         {TABS.map(tab => {
           const isActive = activeTab === tab.id;
           const Icon = tab.icon;
-          const color = isActive ? '#059669' : colors.textTertiary;
+          const color = isActive ? colors.success : colors.textTertiary;
           
           return (
             <TouchableOpacity 
@@ -33,10 +33,10 @@ export default function TabBar({ activeTab, onTabSelect }: TabBarProps) {
               style={styles.tabButton}
               onPress={() => onTabSelect(tab.id)}
             >
-              <View style={[styles.iconWrapper, isActive && { backgroundColor: 'rgba(5, 150, 105, 0.1)' }]}>
+              <View style={[styles.iconWrapper, isActive && { backgroundColor: colors.success + '15' }]}>
                 <Icon size={22} color={color} strokeWidth={isActive ? 2.5 : 2} />
               </View>
-              <Text style={[styles.label, { color: isActive ? '#059669' : colors.textTertiary, fontWeight: isActive ? '700' : '600' }]}>{tab.label}</Text>
+              <Text style={[styles.label, { color: isActive ? colors.success : colors.textTertiary, fontWeight: isActive ? '700' : '600' }]}>{tab.label}</Text>
             </TouchableOpacity>
           );
         })}
