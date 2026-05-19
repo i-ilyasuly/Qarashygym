@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Platform } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import { createTypography } from '../styles/typography';
 
@@ -10,14 +10,14 @@ export default function DayProgressCard() {
 
   const stats = [
     { label: 'Ұйқы', value: 20, time: '2 сағ', color: '#A855F7' },
-    { label: 'Белсенді', value: 30, time: '3 сағ', color: '#10B981' },
-    { label: 'Тамақ', value: 10, time: '1 сағ', color: '#EAB308' },
+    { label: 'Ойын', value: 30, time: '3 сағ', color: '#10B981' },
+    { label: 'Тамақ', value: 10, time: '1 сағ', color: '#FACC15' },
     { label: 'Оқу', value: 15, time: '1.5 сағ', color: '#3B82F6' },
   ];
 
   return (
     <View style={styles.container}>
-      <Text style={[TYPOGRAPHY.label, { color: colors.textTertiary, fontSize: 13, marginBottom: 12, letterSpacing: 0.5 }]}>
+      <Text style={[TYPOGRAPHY.label, { color: colors.textTertiary, fontSize: 12, marginBottom: 16, letterSpacing: 1 }]}>
         БҮГІНГІ БЕЛСЕНДІЛІК
       </Text>
 
@@ -32,7 +32,11 @@ export default function DayProgressCard() {
                 { 
                   flex: stat.value, 
                   backgroundColor: stat.color,
-                  marginLeft: idx === 0 ? 0 : 4,
+                  marginHorizontal: idx !== 0 && idx !== stats.length - 1 ? 2 : 0,
+                  borderTopLeftRadius: idx === 0 ? 12 : 4,
+                  borderBottomLeftRadius: idx === 0 ? 12 : 4,
+                  borderTopRightRadius: idx === stats.length - 1 ? 12 : 4,
+                  borderBottomRightRadius: idx === stats.length - 1 ? 12 : 4,
                 }
               ]} 
             />
@@ -47,7 +51,7 @@ export default function DayProgressCard() {
                 <View style={[styles.legendDot, { backgroundColor: stat.color }]} />
                 <Text style={[TYPOGRAPHY.bodySmall, { color: colors.textSecondary }]}>{stat.label}</Text>
               </View>
-              <Text style={[TYPOGRAPHY.heading3, { marginTop: 8, fontSize: 16 }]}>{stat.time}</Text>
+              <Text style={[TYPOGRAPHY.heading3, { marginTop: 6, fontSize: 16, color: colors.textPrimary }]}>{stat.time}</Text>
             </View>
           ))}
         </View>
@@ -58,21 +62,33 @@ export default function DayProgressCard() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 16,
+    paddingBottom: 32,
   },
   card: {
-    borderRadius: 20,
-    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
     borderWidth: 1,
-    padding: 20,
+    padding: 24,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.05,
+        shadowRadius: 12,
+      },
+      android: {
+        elevation: 2,
+      },
+      web: {
+        boxShadow: '0 4px 20px -8px rgba(0,0,0,0.05)',
+      }
+    }),
   },
   barContainer: {
     flexDirection: 'row',
-    height: 8,
-    marginBottom: 24,
+    height: 12,
+    marginBottom: 28,
   },
   barSegment: {
-    borderRadius: 999, 
     height: '100%',
   },
   legendContainer: {
@@ -86,11 +102,11 @@ const styles = StyleSheet.create({
   legendHeaderRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 8,
   },
   legendDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
+    width: 8,
+    height: 8,
+    borderRadius: 4,
   }
 });

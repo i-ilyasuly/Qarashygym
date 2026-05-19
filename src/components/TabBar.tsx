@@ -8,7 +8,7 @@ export const TABS = [
   { id: 'Food', label: 'МӘЗІР', icon: Utensils },
   { id: 'Gallery', label: 'ГАЛЕРЕЯ', icon: ImageIcon },
   { id: 'Camera', label: 'КАМЕРА', icon: Video },
-  { id: 'Report', label: 'СТАТИСТИКА', icon: BarChart3 },
+  { id: 'Report', label: 'СТАТИСТИК', icon: BarChart3 },
 ];
 
 interface TabBarProps {
@@ -25,7 +25,7 @@ export default function TabBar({ activeTab, onTabSelect }: TabBarProps) {
         {TABS.map(tab => {
           const isActive = activeTab === tab.id;
           const Icon = tab.icon;
-          const color = isActive ? colors.textPrimary : colors.textTertiary;
+          const color = isActive ? '#059669' : colors.textTertiary;
           
           return (
             <TouchableOpacity 
@@ -33,8 +33,10 @@ export default function TabBar({ activeTab, onTabSelect }: TabBarProps) {
               style={styles.tabButton}
               onPress={() => onTabSelect(tab.id)}
             >
-              <Icon size={24} color={color} strokeWidth={isActive ? 2.5 : 2} />
-              <Text style={[styles.label, { color, fontWeight: isActive ? '700' : '600', marginTop: 4 }]}>{tab.label}</Text>
+              <View style={[styles.iconWrapper, isActive && { backgroundColor: 'rgba(5, 150, 105, 0.1)' }]}>
+                <Icon size={22} color={color} strokeWidth={isActive ? 2.5 : 2} />
+              </View>
+              <Text style={[styles.label, { color: isActive ? '#059669' : colors.textTertiary, fontWeight: isActive ? '700' : '600' }]}>{tab.label}</Text>
             </TouchableOpacity>
           );
         })}
@@ -46,8 +48,19 @@ export default function TabBar({ activeTab, onTabSelect }: TabBarProps) {
 const styles = StyleSheet.create({
   container: {
     borderTopWidth: 1,
-    paddingBottom: Platform.OS === 'web' ? 12 : 24, // For notch on physical devices
-    paddingTop: 12,
+    paddingBottom: Platform.OS === 'web' ? 16 : 24, // For notch on physical devices
+    paddingTop: 8,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: -4 },
+        shadowOpacity: 0.05,
+        shadowRadius: 10,
+      },
+      web: {
+        boxShadow: '0 -4px 20px -8px rgba(0,0,0,0.05)',
+      }
+    }),
   },
   tabContainer: {
     flexDirection: 'row',
@@ -61,7 +74,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 6,
+    gap: 4,
+  },
+  iconWrapper: {
+    padding: 8,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   label: {
     fontFamily: 'Plus Jakarta Sans, sans-serif',

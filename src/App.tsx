@@ -31,15 +31,15 @@ function Dashboard() {
         <View style={[styles.topBar, { backgroundColor: colors.background, paddingBottom: 16 }]}>
           <View style={[styles.topBarContent, { justifyContent: 'space-between' }]}>
             <View>
-              <Text style={[TYPOGRAPHY.label, { color: colors.textTertiary, textTransform: 'none', fontSize: 15 }]}>Сәлем, Гүлнар</Text>
-              <Text style={[TYPOGRAPHY.display, { fontSize: 32, marginTop: 4 }]}>Бүгінгі күн</Text>
+              <Text style={[TYPOGRAPHY.label, { color: colors.textTertiary, textTransform: 'none', fontSize: 16, fontWeight: '500' }]}>Сәлем, Гүлнар</Text>
+              <Text style={[TYPOGRAPHY.display, { fontSize: 28, marginTop: 4, letterSpacing: -0.5 }]}>Бүгінгі күн</Text>
             </View>
             <View style={styles.headerIcons}>
               <TouchableOpacity onPress={toggleTheme} style={[styles.iconButton, { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border }]}>
                 {theme === 'light' ? <Moon size={20} color={colors.textPrimary} /> : <Sun size={20} color={colors.textPrimary} />}
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.avatarButton, { backgroundColor: '#FACC15' }]}>
-                 <Text style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', fontWeight: '700', fontSize: 18, color: '#1A1A1A' }}>A</Text>
+              <TouchableOpacity style={[styles.avatarButton, { backgroundColor: '#10B981' }]}>
+                 <Text style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', fontWeight: '800', fontSize: 16, color: '#FFFFFF' }}>Г</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   scrollContent: {
     padding: 24,
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minHeight: 300,
     padding: 32,
-    borderRadius: 20,
+    borderRadius: 24,
     borderWidth: 1,
     marginTop: 8,
   }

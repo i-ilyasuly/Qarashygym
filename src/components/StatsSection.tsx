@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Platform } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import { createTypography } from '../styles/typography';
 import { TrendingUp, Clock, Activity, Utensils, Zap, Smile, Users, MessageSquare, Tags } from 'lucide-react';
@@ -39,17 +39,17 @@ export default function StatsSection() {
         </View>
       </View>
 
-      <Text style={[styles.sectionTitle, { color: colors.textTertiary, marginTop: 8 }]}>ЖАЛПЫ АЙЛЫҚ КӨРСЕТКІШ</Text>
+      <Text style={[styles.sectionTitle, { color: colors.textTertiary, marginTop: 12 }]}>ЖАЛПЫ АЙЛЫҚ КӨРСЕТКІШ</Text>
 
       {/* Proportional Asset Allocation Bar Pattern */}
       <View style={[styles.card, { backgroundColor: cardBg, borderColor: cardBorder }]}>
-        <Text style={{ color: isDark ? '#888888' : '#71717A', fontSize: 13, fontWeight: '600', marginBottom: 6, fontFamily: 'Plus Jakarta Sans, sans-serif', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+        <Text style={{ color: isDark ? '#888888' : '#71717A', fontSize: 13, fontWeight: '600', marginBottom: 8, fontFamily: 'Plus Jakarta Sans, sans-serif', textTransform: 'uppercase', letterSpacing: 0.5 }}>
           Орташа уақыт (күніне)
         </Text>
         <View style={styles.amountRow}>
-          <Text style={{ color: mainTextColor, fontSize: 36, fontWeight: '800', letterSpacing: -1, lineHeight: 40, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>8</Text>
-          <Text style={{ color: decimalTextColor, fontSize: 36, fontWeight: '800', letterSpacing: -1, lineHeight: 40, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>.5 сағ</Text>
-          <View style={{ marginBottom: 4, marginLeft: 8 }}>
+          <Text style={{ color: mainTextColor, fontSize: 40, fontWeight: '800', letterSpacing: -1, lineHeight: 44, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>8</Text>
+          <Text style={{ color: decimalTextColor, fontSize: 40, fontWeight: '800', letterSpacing: -1, lineHeight: 44, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>.5 сағ</Text>
+          <View style={{ marginBottom: 6, marginLeft: 12, backgroundColor: 'rgba(16, 185, 129, 0.15)', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 8 }}>
              <Text style={{ color: '#10B981', fontSize: 13, fontWeight: '700', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>+12% ↑</Text>
           </View>
         </View>
@@ -79,33 +79,33 @@ export default function StatsSection() {
       <View style={[styles.card, { backgroundColor: cardBg, borderColor: cardBorder, marginTop: 16 }]}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
           <Text style={[TYPOGRAPHY.heading3, { color: mainTextColor }]}>Сабаққа қатысу</Text>
-          <View style={{ backgroundColor: '#10B98115', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 12 }}>
-            <Text style={{ color: '#10B981', fontSize: 12, fontWeight: '700', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>ҮЗДІК</Text>
+          <View style={{ backgroundColor: '#10B98115', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 12 }}>
+            <Text style={{ color: '#10B981', fontSize: 13, fontWeight: '700', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>ҮЗДІК</Text>
           </View>
         </View>
         
         <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 4 }}>
-          <Text style={{ color: mainTextColor, fontSize: 32, fontWeight: '800', letterSpacing: -1 }}>18</Text>
-          <Text style={{ color: decimalTextColor, fontSize: 16, fontWeight: '600', marginBottom: 6 }}>/ 20 күн</Text>
+          <Text style={{ color: mainTextColor, fontSize: 36, fontWeight: '800', letterSpacing: -1 }}>18</Text>
+          <Text style={{ color: decimalTextColor, fontSize: 18, fontWeight: '600', marginBottom: 6 }}>/ 20 күн</Text>
         </View>
-        <Text style={[TYPOGRAPHY.bodySmall, { color: decimalTextColor, marginTop: 8 }]}>Осы айда 2 күн ғана себепті босатқан.</Text>
+        <Text style={[TYPOGRAPHY.bodySmall, { color: decimalTextColor, marginTop: 12, fontSize: 14 }]}>Осы айда 2 күн ғана себепті босатқан.</Text>
       </View>
 
-      <Text style={[styles.sectionTitle, { color: colors.textTertiary, marginTop: 32 }]}>КҮНДЕЛІК ЕСЕП (19 МАМЫР)</Text>
+      <Text style={[styles.sectionTitle, { color: colors.textTertiary, marginTop: 40 }]}>КҮНДЕЛІК ЕСЕП (19 МАМЫР)</Text>
 
       {/* Grid Stats */}
       <View style={[styles.grid, { marginTop: 0 }]}>
         <View style={[styles.gridCard, { backgroundColor: cardBg, borderColor: cardBorder }]}>
-          <View style={[styles.iconWrapper, { backgroundColor: '#10B98115' }]}>
-            <Utensils size={20} color="#10B981" />
+          <View style={[styles.iconWrapper, { backgroundColor: 'rgba(16, 185, 129, 0.15)' }]}>
+            <Utensils size={24} color="#10B981" />
           </View>
           <Text style={[styles.gridValue, { color: mainTextColor }]}>92%</Text>
           <Text style={[styles.gridLabel, { color: decimalTextColor }]}>Тамақтану</Text>
         </View>
 
         <View style={[styles.gridCard, { backgroundColor: cardBg, borderColor: cardBorder }]}>
-          <View style={[styles.iconWrapper, { backgroundColor: '#F59E0B15' }]}>
-            <Activity size={20} color="#F59E0B" />
+          <View style={[styles.iconWrapper, { backgroundColor: 'rgba(245, 158, 11, 0.15)' }]}>
+            <Activity size={24} color="#F59E0B" />
           </View>
           <Text style={[styles.gridValue, { color: mainTextColor }]}>Ментальді</Text>
           <Text style={[styles.gridLabel, { color: decimalTextColor }]}>Даму</Text>
@@ -114,28 +114,28 @@ export default function StatsSection() {
 
       <View style={[styles.card, { backgroundColor: cardBg, borderColor: cardBorder, marginTop: 16 }]}>
         <View style={styles.sectionHeader}>
-           <Smile size={20} color={colors.accent} />
-           <Text style={[TYPOGRAPHY.heading3, { marginLeft: 8 }]}>Көңіл күйі</Text>
+           <Smile size={22} color={colors.accent} />
+           <Text style={[TYPOGRAPHY.heading3, { marginLeft: 12 }]}>Көңіл күйі</Text>
         </View>
-        <Text style={[TYPOGRAPHY.body, { marginBottom: 12, color: colors.textSecondary }]}>Жақсы</Text>
+        <Text style={[TYPOGRAPHY.body, { marginBottom: 16, color: colors.textSecondary }]}>Мен бүгін өте көңілді болдым</Text>
         {renderProgressBar(MOOD_SCORE, 10, colors.accent)}
       </View>
 
       <View style={[styles.card, { backgroundColor: cardBg, borderColor: cardBorder, marginTop: 16 }]}>
         <View style={styles.sectionHeader}>
-           <Zap size={20} color={colors.warning} />
-           <Text style={[TYPOGRAPHY.heading3, { marginLeft: 8 }]}>Белсенділік</Text>
+           <Zap size={22} color={colors.warning} />
+           <Text style={[TYPOGRAPHY.heading3, { marginLeft: 12 }]}>Белсенділік</Text>
         </View>
-        <Text style={[TYPOGRAPHY.body, { marginBottom: 12, color: colors.textSecondary }]}>Орташа</Text>
+        <Text style={[TYPOGRAPHY.body, { marginBottom: 16, color: colors.textSecondary }]}>Сәл шаршаңқы, бірақ ойынға қатысты</Text>
         {renderProgressBar(ACTIVITY_SCORE, 10, colors.warning)}
       </View>
 
       <View style={[styles.card, { backgroundColor: cardBg, borderColor: cardBorder, marginTop: 16 }]}>
         <View style={styles.sectionHeader}>
-           <Users size={20} color={colors.success} />
-           <Text style={[TYPOGRAPHY.heading3, { marginLeft: 8 }]}>Достармен қарым-қатынас</Text>
+           <Users size={22} color={colors.success} />
+           <Text style={[TYPOGRAPHY.heading3, { marginLeft: 12 }]}>Қарым-қатынас</Text>
         </View>
-        <Text style={[TYPOGRAPHY.body, { marginBottom: 12, color: colors.textSecondary }]}>Өте жақсы</Text>
+        <Text style={[TYPOGRAPHY.body, { marginBottom: 16, color: colors.textSecondary }]}>Балалармен өте жақсы ойнады</Text>
         {renderProgressBar(SOCIAL_SCORE, 10, colors.success)}
       </View>
 
@@ -146,20 +146,20 @@ export default function StatsSection() {
           </View>
           <Text style={[TYPOGRAPHY.heading3, { color: isDark ? '#FFF8E1' : '#1A1A1A', fontSize: 18 }]}>Тәрбиешінің ескертпесі</Text>
         </View>
-        <Text style={[TYPOGRAPHY.body, { color: isDark ? 'rgba(255,248,225,0.8)' : '#5C4710', lineHeight: 24 }]}>
+        <Text style={[TYPOGRAPHY.body, { color: isDark ? 'rgba(255,248,225,0.8)' : '#5C4710', lineHeight: 26 }]}>
           Айару бүгін сурет салуда өте белсенді болды. Ол гүлдерді әдемі етіп салып, басқа балаларға да көмектесті. Түскі асты жартылай жеді, бірақ ұйқысы жақсы болды.
         </Text>
       </View>
 
-      <View style={{ marginTop: 32, marginBottom: 40 }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 16 }}>
+      <View style={{ marginTop: 40, marginBottom: 56 }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
           <Tags size={20} color={colors.textTertiary} />
-          <Text style={[styles.sectionTitle, { color: colors.textTertiary, marginLeft: 8, marginBottom: 0 }]}>БҮГІНГІ ТЕГТЕР</Text>
+          <Text style={[styles.sectionTitle, { color: colors.textTertiary, marginLeft: 12, marginBottom: 0 }]}>БҮГІНГІ ТЕГТЕР</Text>
         </View>
         <View style={styles.tagsContainer}>
           {['Шығармашыл', 'Жігерлі', 'Мейірімді'].map((tag, idx) => (
             <View key={idx} style={[styles.tag, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-              <Text style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: colors.textSecondary, fontSize: 14, fontWeight: '500' }}>
+              <Text style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: colors.textSecondary, fontSize: 15, fontWeight: '600' }}>
                 {tag}
               </Text>
             </View>
@@ -172,7 +172,7 @@ export default function StatsSection() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 16,
+    paddingBottom: 24,
   },
   headerRow: {
     flexDirection: 'row',
@@ -181,38 +181,47 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   sectionTitle: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '700',
     fontFamily: 'Plus Jakarta Sans, sans-serif',
-    marginBottom: 16,
-    letterSpacing: 0.5,
+    marginBottom: 20,
+    letterSpacing: 1,
   },
   card: {
-    borderRadius: 20,
+    borderRadius: 24,
     borderWidth: 1,
     padding: 24,
     width: '100%',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.03,
-    shadowRadius: 8,
-    elevation: 1,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.05,
+        shadowRadius: 12,
+      },
+      android: {
+        elevation: 2,
+      },
+      web: {
+        boxShadow: '0 4px 20px -8px rgba(0,0,0,0.05)',
+      }
+    }),
   },
   amountRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     gap: 4,
-    marginBottom: 20,
+    marginBottom: 24,
   },
   bar: {
     flexDirection: 'row',
-    gap: 4,
-    height: 8,
-    marginBottom: 16,
+    gap: 6,
+    height: 12,
+    marginBottom: 20,
   },
   segment: {
-    borderRadius: 999,
-    height: 8,
+    borderRadius: 8,
+    height: 12,
   },
   assetsRow: {
     flexDirection: 'row',
@@ -225,7 +234,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   assetSymbol: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '700',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -233,8 +242,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Plus Jakarta Sans, sans-serif',
   },
   assetValue: {
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: 18,
+    fontWeight: '800',
     fontFamily: 'Plus Jakarta Sans, sans-serif',
   },
   grid: {
@@ -244,70 +253,79 @@ const styles = StyleSheet.create({
   },
   gridCard: {
     flex: 1,
-    borderRadius: 20,
+    borderRadius: 24,
     borderWidth: 1,
-    padding: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.03,
-    shadowRadius: 8,
-    elevation: 1,
+    padding: 24,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.05,
+        shadowRadius: 12,
+      },
+      android: {
+        elevation: 2,
+      },
+      web: {
+        boxShadow: '0 4px 20px -8px rgba(0,0,0,0.05)',
+      }
+    }),
   },
   iconWrapper: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
+    width: 48,
+    height: 48,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   gridValue: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: '800',
     fontFamily: 'Plus Jakarta Sans, sans-serif',
     letterSpacing: -0.5,
-    marginBottom: 4,
+    marginBottom: 6,
   },
   gridLabel: {
-    fontSize: 13,
+    fontSize: 14,
     fontFamily: 'Plus Jakarta Sans, sans-serif',
-    fontWeight: '500',
+    fontWeight: '600',
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 12,
   },
   progressBarContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: 16,
   },
   progressBarBg: {
     flex: 1,
-    height: 8,
-    borderRadius: 999,
+    height: 10,
+    borderRadius: 5,
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
-    borderRadius: 999,
+    borderRadius: 5,
   },
   highlightCard: {
-    borderRadius: 20,
-    padding: 24,
-    marginTop: 16,
+    borderRadius: 24,
+    padding: 28,
+    marginTop: 20,
   },
   highlightHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    marginBottom: 16,
+    gap: 16,
+    marginBottom: 20,
   },
   iconBox: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
+    width: 44,
+    height: 44,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -319,7 +337,7 @@ const styles = StyleSheet.create({
   tag: {
     borderWidth: 1,
     paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 999,
+    paddingVertical: 10,
+    borderRadius: 20,
   }
 });

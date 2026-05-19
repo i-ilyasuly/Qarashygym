@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Platform } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import { createTypography } from '../styles/typography';
 import { Calendar, ChevronDown, ChevronUp } from 'lucide-react';
@@ -18,10 +18,10 @@ const MENU_DATA = [
     time: '07:30',
     title: 'Таңғы ас',
     items: ['Гречка ботқасы', 'Нан + сары май', 'Какао'],
-    status: 'Жеді',
+    status: 'Толық жеді',
     statusType: 'success_pill',
-    bgColorLight: '#F5BE18',
-    bgColorDark: '#9A7606',
+    bgColorLight: '#FFFBF0',
+    bgColorDark: '#3A3215',
     textColorLight: '#1A1A1A',
     textColorDark: '#FDFDFD',
     imgUrl: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=300&q=80',
@@ -30,11 +30,11 @@ const MENU_DATA = [
     id: 2,
     time: '10:00',
     title: 'Екінші таңғы',
-    items: ['Алма', 'Кефир'],
+    items: ['Алма', 'Айран'],
     status: 'Жеді',
     statusType: 'success_text',
-    bgColorLight: '#E8F5E9',
-    bgColorDark: '#172E1C',
+    bgColorLight: '#F2FBF6',
+    bgColorDark: '#173620',
     textColorLight: '#1A1A1A',
     textColorDark: '#E8F5E9',
     imgUrl: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6caa6?auto=format&fit=crop&w=300&q=80',
@@ -44,10 +44,10 @@ const MENU_DATA = [
     time: '12:30',
     title: 'Түскі ас',
     items: ['Борщ', 'Котлет + картоп пюре', 'Компот'],
-    status: 'Жарты',
+    status: 'Жартылай жеді',
     statusType: 'warning_text',
-    bgColorLight: '#FFF8E1',
-    bgColorDark: '#332D1A',
+    bgColorLight: '#FFF8F2',
+    bgColorDark: '#362315',
     textColorLight: '#1A1A1A',
     textColorDark: '#FFF8E1',
     imgUrl: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=300&q=80',
@@ -59,8 +59,8 @@ const MENU_DATA = [
     items: ['Печенье', 'Шай'],
     status: 'Жемеді',
     statusType: 'danger_text',
-    bgColorLight: '#FFEBEE',
-    bgColorDark: '#331B1E',
+    bgColorLight: '#FFF3F4',
+    bgColorDark: '#3A1C21',
     textColorLight: '#1A1A1A',
     textColorDark: '#FFEBEE',
     imgUrl: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=300&q=80',
@@ -100,7 +100,7 @@ export default function MenuSection() {
                 style={[
                   styles.dayPill, 
                   { 
-                    backgroundColor: isSelected ? (isDark ? '#FACC15' : '#1A1A1A') : colors.card,
+                    backgroundColor: isSelected ? '#10B981' : colors.card,
                     borderColor: isSelected ? 'transparent' : colors.border
                   }
                 ]}
@@ -108,17 +108,17 @@ export default function MenuSection() {
                 <Text style={{ 
                   fontFamily: 'Plus Jakarta Sans, sans-serif', 
                   fontSize: 12, 
-                  color: isSelected ? (isDark ? '#1A1A1A' : '#FFFFFF') : colors.textSecondary,
-                  fontWeight: '500'
+                  color: isSelected ? '#FFFFFF' : colors.textSecondary,
+                  fontWeight: '600'
                 }}>
                   {day.dayName}
                 </Text>
                 <Text style={{ 
                   fontFamily: 'Plus Jakarta Sans, sans-serif', 
                   fontWeight: '700', 
-                  fontSize: 16, 
-                  color: isSelected ? (isDark ? '#1A1A1A' : '#FFFFFF') : colors.textPrimary,
-                  marginTop: 2
+                  fontSize: 18, 
+                  color: isSelected ? '#FFFFFF' : colors.textPrimary,
+                  marginTop: 4
                 }}>
                   {day.date}
                 </Text>
@@ -137,12 +137,12 @@ export default function MenuSection() {
           
           if (meal.statusType === 'success_pill') {
             statusElement = (
-              <View style={[styles.statusPill, { backgroundColor: isDark ? '#FFFFFF' : '#FFFFFF' }]}>
-                <Text style={{ color: '#059669', fontWeight: '600', fontSize: 13, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>
+              <View style={[styles.statusPill, { backgroundColor: isDark ? '#FFFFFF15' : '#05966915' }]}>
+                <Text style={{ color: isDark ? '#10B981' : '#059669', fontWeight: '700', fontSize: 13, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>
               </View>
             );
           } else if (meal.statusType === 'success_text') {
-            statusElement = <Text style={{ color: '#059669', fontWeight: '600', fontSize: 14, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>;
+            statusElement = <Text style={{ color: isDark ? '#10B981' : '#059669', fontWeight: '600', fontSize: 14, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>;
           } else if (meal.statusType === 'warning_text') {
             statusElement = <Text style={{ color: '#D97706', fontWeight: '600', fontSize: 14, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{meal.status}</Text>;
           } else {
@@ -159,7 +159,7 @@ export default function MenuSection() {
                   <View style={styles.contentBox}>
                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                        <Text style={[TYPOGRAPHY.heading3, { color: textColor, fontSize: 18 }]}>{meal.title}</Text>
-                       <Text style={[TYPOGRAPHY.bodySmall, { color: mutedTextColor, fontWeight: '500' }]}>{meal.time}</Text>
+                       <Text style={[TYPOGRAPHY.bodySmall, { color: mutedTextColor, fontWeight: '600' }]}>{meal.time}</Text>
                      </View>
                      <View style={styles.itemsWrapper}>
                        {meal.items.map((item, idx) => (
@@ -185,7 +185,7 @@ export default function MenuSection() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 16,
+    paddingBottom: 24,
   },
   headerRow: {
     flexDirection: 'row',
@@ -193,34 +193,39 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginBottom: 24,
   },
-  weekButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 999,
-    gap: 8,
-    marginTop: 8,
-  },
   weekSelectorContainer: {
-    paddingBottom: 20,
+    paddingBottom: 24,
     gap: 8,
   },
   dayPill: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 16,
     borderWidth: 1,
     alignItems: 'center',
     marginRight: 8,
-    minWidth: 48,
+    minWidth: 64,
   },
   listContainer: {
     gap: 16,
   },
   card: {
-    borderRadius: 20,
+    borderRadius: 24,
     padding: 24,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.05,
+        shadowRadius: 12,
+      },
+      android: {
+        elevation: 2,
+      },
+      web: {
+        boxShadow: '0 4px 20px -8px rgba(0,0,0,0.05)',
+      }
+    }),
   },
   cardHeader: {
     flexDirection: 'row',
@@ -233,10 +238,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   imageBox: {
-    width: 96,
-    height: 96,
-    borderRadius: 24,
-    backgroundColor: 'rgba(255,255,255,0.4)',
+    width: 80,
+    height: 80,
+    borderRadius: 20,
+    backgroundColor: 'rgba(0,0,0,0.05)',
     overflow: 'hidden',
   },
   image: {
@@ -248,16 +253,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   itemsWrapper: {
-    marginTop: 6,
+    marginTop: 8,
   },
   statusContainer: {
     alignItems: 'flex-end',
     justifyContent: 'flex-start',
-    minWidth: 60,
+    minWidth: 80,
   },
   statusPill: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
     borderRadius: 999,
   }
 });
