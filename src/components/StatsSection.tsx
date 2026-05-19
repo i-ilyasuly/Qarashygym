@@ -49,8 +49,8 @@ export default function StatsSection() {
         <View style={styles.amountRow}>
           <Text style={{ color: mainTextColor, fontSize: 40, fontWeight: '800', letterSpacing: -1, lineHeight: 44, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>8</Text>
           <Text style={{ color: decimalTextColor, fontSize: 40, fontWeight: '800', letterSpacing: -1, lineHeight: 44, fontFamily: 'Plus Jakarta Sans, sans-serif' }}>.5 сағ</Text>
-          <View style={{ marginBottom: 6, marginLeft: 12, backgroundColor: colors.success + '15', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 8 }}>
-             <Text style={{ color: colors.success, fontSize: 13, fontWeight: '700', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>+12% ↑</Text>
+          <View style={{ marginBottom: 6, marginLeft: 12, backgroundColor: 'rgba(16, 185, 129, 0.15)', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 8 }}>
+             <Text style={{ color: '#10B981', fontSize: 13, fontWeight: '700', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>+12% ↑</Text>
           </View>
         </View>
 
@@ -79,8 +79,8 @@ export default function StatsSection() {
       <View style={[styles.card, { backgroundColor: cardBg, borderColor: cardBorder, marginTop: 16 }]}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
           <Text style={[TYPOGRAPHY.heading3, { color: mainTextColor }]}>Сабаққа қатысу</Text>
-          <View style={{ backgroundColor: colors.success + '15', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 12 }}>
-            <Text style={{ color: colors.success, fontSize: 13, fontWeight: '700', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>ҮЗДІК</Text>
+          <View style={{ backgroundColor: '#10B98115', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 12 }}>
+            <Text style={{ color: '#10B981', fontSize: 13, fontWeight: '700', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>ҮЗДІК</Text>
           </View>
         </View>
         
@@ -96,16 +96,16 @@ export default function StatsSection() {
       {/* Grid Stats */}
       <View style={[styles.grid, { marginTop: 0 }]}>
         <View style={[styles.gridCard, { backgroundColor: cardBg, borderColor: cardBorder }]}>
-          <View style={[styles.iconWrapper, { backgroundColor: colors.success + '15' }]}>
-            <Utensils size={24} color={colors.success} />
+          <View style={[styles.iconWrapper, { backgroundColor: 'rgba(16, 185, 129, 0.15)' }]}>
+            <Utensils size={24} color="#10B981" />
           </View>
           <Text style={[styles.gridValue, { color: mainTextColor }]}>92%</Text>
           <Text style={[styles.gridLabel, { color: decimalTextColor }]}>Тамақтану</Text>
         </View>
 
         <View style={[styles.gridCard, { backgroundColor: cardBg, borderColor: cardBorder }]}>
-          <View style={[styles.iconWrapper, { backgroundColor: colors.warning + '15' }]}>
-            <Activity size={24} color={colors.warning} />
+          <View style={[styles.iconWrapper, { backgroundColor: 'rgba(245, 158, 11, 0.15)' }]}>
+            <Activity size={24} color="#F59E0B" />
           </View>
           <Text style={[styles.gridValue, { color: mainTextColor }]}>Ментальді</Text>
           <Text style={[styles.gridLabel, { color: decimalTextColor }]}>Даму</Text>

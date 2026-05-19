@@ -38,7 +38,7 @@ function Dashboard() {
               <TouchableOpacity onPress={toggleTheme} style={[styles.iconButton, { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border }]}>
                 {theme === 'light' ? <Moon size={20} color={colors.textPrimary} /> : <Sun size={20} color={colors.textPrimary} />}
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.avatarButton, { backgroundColor: colors.success }]}>
+              <TouchableOpacity style={[styles.avatarButton, { backgroundColor: '#10B981' }]}>
                  <Text style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', fontWeight: '800', fontSize: 16, color: '#FFFFFF' }}>Г</Text>
               </TouchableOpacity>
             </View>

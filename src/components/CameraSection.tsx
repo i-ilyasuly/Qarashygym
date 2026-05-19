@@ -49,8 +49,8 @@ export default function CameraSection() {
               onPress={() => setSelectedCam(cam.id)}
               style={[
                 styles.camPill, 
-                  { 
-                    backgroundColor: isSelected ? colors.success : colors.card,
+                { 
+                  backgroundColor: isSelected ? (isDark ? '#FDFDFD' : '#1A1A1A') : colors.card,
                   borderColor: isSelected ? 'transparent' : colors.border
                 }
               ]}
@@ -58,7 +58,7 @@ export default function CameraSection() {
               <Text style={{ 
                 fontFamily: 'Plus Jakarta Sans, sans-serif', 
                 fontSize: 14, 
-                  color: isSelected ? '#FFFFFF' : colors.textSecondary,
+                color: isSelected ? (isDark ? '#1A1A1A' : '#FFFFFF') : colors.textSecondary,
                 fontWeight: isSelected ? '700' : '600'
               }}>
                 {cam.name}
